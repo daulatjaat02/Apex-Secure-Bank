@@ -29,5 +29,44 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-////////////////////////////////////////////////////////
-// Lectures
+// Smooth scrolling
+let btnScrollTo = document.querySelector(".btn--scroll-to");
+let seciton1 = document.querySelector("#section--1");
+
+btnScrollTo.addEventListener("click", function (e) {
+  // let s1coords = seciton1.getBoundingClientRect();
+  // console.log(s1coords);
+
+  // console.log(e.target.getBoundingClientRect());
+
+  // console.log("current  X/Y scroll : ", window.pageXOffset, window.pageYOffset);
+  // console.log(
+  //   "Client height/Width :",
+  //   document.documentElement.clientHeight,
+  //   document.documentElement.clientWidth
+  // );
+
+  seciton1.scrollIntoView({ behavior: "smooth" });
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Events : Three ways to add events
+
+// mouseenter
+let h1 = document.querySelector("h1");
+
+let alertH1 = (e) => {
+  alert("Great! You are reading the heading");
+  // h1.removeEventListener("mouseenter", alertH1);
+};
+h1.addEventListener("mouseenter", alertH1);
+
+setTimeout(() => {
+  h1.removeEventListener("mouseenter", alertH1);
+}, 3000);
+
+// h1.onmouseenter = alertH1;
+
+// In html
+// <h1 onclick="alertH1()"></h1>
