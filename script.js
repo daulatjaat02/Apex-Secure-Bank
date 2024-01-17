@@ -123,7 +123,7 @@ let sectionObeserver = new IntersectionObserver(revelSection, {
 });
 allSections.forEach(function (section) {
   sectionObeserver.observe(section);
-  // section.classList.add("section--hidden");
+  section.classList.add("section--hidden");
 });
 
 // Lazy loading Images
