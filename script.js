@@ -236,24 +236,4 @@ let sliders = function () {
   });
 };
 sliders();
-
-// DOMContentLoaded event : We don't need it because we already put script tag at the last of the HTML file
-// document.addEventListener("DOMContentLoaded", function (e) {
-//   console.log("HTML parsed and DOM tree build!", e);
-// });
-
-// load lister : after load
-// window.addEventListener("load", function (e) {
-//   console.log("Page fully loaded", e);
-// });
-
-// before load : to show a popup window before leave the site
-// document.addEventListener("beforeunload", function (e) {
-//   e.preventDefault();
-//   console.log(e);
-//   e.returnValue = "";
-// });
-
-// Efficient SCRIPT loading : Defer and Async(only in the Head)
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,14 +1,16 @@
 /* The page is NOT responsive. You can implement responsiveness yourself if you wanna have some fun 😃 */
 
 :root {
-  --color-primary: #5ec576;
+  --color-primary: #ffffff;
+  --color-primary1: #00ff22;
+  --color-primary2: #5b03ff;
   --color-secondary: #ffcb03;
   --color-tertiary: #ff585f;
   --color-primary-darker: #4bbb7d;
-  --color-secondary-darker: #ffbb00;
+  --color-secondary-darker: #3d2d01;
   --color-tertiary-darker: #fd424b;
-  --color-primary-opacity: #5ec5763a;
-  --color-secondary-opacity: #ffcd0331;
+  --color-primary-opacity: #fffafaa4;
+  --color-secondary-opacity: #fcca0177;
   --color-tertiary-opacity: #ff58602d;
   --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
   --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
@@ -30,9 +32,10 @@ body {
   font-weight: 300;
   color: #444;
   line-height: 1.9;
-  background-color: #f3f3f3;
+  /* background-color: #f3f3f3; */
+  background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147))
+    repeat-y;
 }
-
 /* GENERAL ELEMENTS */
 .section {
   padding: 15rem 3rem;
@@ -55,7 +58,7 @@ body {
   font-size: 1.8rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-primary2);
   margin-bottom: 1rem;
 }
 
@@ -67,7 +70,7 @@ body {
 
 .btn {
   display: inline-block;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary1);
   font-size: 1.6rem;
   font-family: inherit;
   font-weight: 500;
@@ -88,7 +91,7 @@ body {
   font-size: 1.7rem;
   font-family: inherit;
   font-weight: 500;
-  color: var(--color-primary);
+  color: var(--color-primary2);
   border: none;
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
@@ -127,14 +130,19 @@ img {
 /* nav and stickly class at the same time */
 .nav.sticky {
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.95);
+  /* background-color: rgba(255, 255, 255, 0.95);  */
+  background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147))
+    repeat-y;
 }
 
 .nav__logo {
-  height: 4.5rem;
+  height: 3.7rem;
   transition: all 0.3s;
 }
-
+.logos {
+  display: flex;
+  gap: 40px;
+}
 .nav__links {
   display: flex;
   align-items: center;
@@ -159,7 +167,7 @@ img {
 .nav__link--btn:visited {
   padding: 0.8rem 2.5rem;
   border-radius: 3rem;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary1);
   color: #222;
 }
 
@@ -225,7 +233,12 @@ h4 {
   z-index: -1;
   opacity: 0.7;
   transform: scale(1.07, 1.05) skewX(-15deg);
-  background-image: var(--gradient-primary);
+  /* background-image: var(--gradient-primary); */
+  background: linear-gradient(
+    108.6deg,
+    rgb(255 255 255) 20.2%,
+    rgb(21 237 0) 91.7%
+  );
 }
 
 /* FEATURES */
@@ -261,7 +274,7 @@ h4 {
 .features__icon svg {
   height: 2.5rem;
   width: 2.5rem;
-  fill: var(--color-primary);
+  fill: var(--color-primary2);
 }
 
 .features__header {
@@ -274,7 +287,8 @@ h4 {
   max-width: 100rem;
   margin: 12rem auto 0 auto;
 
-  background-color: #fff;
+  background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147))
+    repeat-y;
 }
 
 .operations__tab-container {
@@ -366,7 +380,7 @@ h4 {
   fill: var(--color-secondary-darker);
 }
 .operations__icon--2 svg {
-  fill: var(--color-primary);
+  fill: var(--color-secondary-darker);
 }
 .operations__icon--3 svg {
   fill: var(--color-tertiary);
@@ -477,7 +491,7 @@ h4 {
   line-height: 1;
   font-size: 20rem;
   font-family: inherit;
-  color: var(--color-primary);
+  color: var(--color-primary1);
   z-index: -1;
 }
 
