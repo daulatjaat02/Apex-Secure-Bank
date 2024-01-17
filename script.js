@@ -155,19 +155,42 @@ let slides = document.querySelectorAll(".slide");
 let slider = document.querySelector(".slider");
 let btnLeft = document.querySelector(".slider__btn--left");
 let btnRight = document.querySelector(".slider__btn--right");
+let dotContainer = document.querySelector(".dots");
 
 let curSlide = 0;
 let maxSlide = slides.length;
 
-slider.style.transform = "scale(0.5) translateX(-1200px)";
-slider.style.overflow = "visible";
+// slider.style.transform = "scale(0.5) translateX(-1200px)";
+// slider.style.overflow = "visible";
+
+let createDots = function () {
+  slides.forEach(function (_, i) {
+    dotContainer.insertAdjacentHTML(
+      "beforeend",
+      `<button class="dots__dot" data-slide="${i}"></button>`
+    );
+  });
+};
+createDots();
+
+let activateDot = function (slide) {
+  document
+    .querySelectorAll(".dots__dot")
+    .forEach((dot) => dot.classList.remove("dots__dot--active"));
+
+  document
+    .querySelector(`.dots_dot[data-slide="${slide}"]`)
+    .classList.add("dots__dot--active");
+};
 
 let goToSlide = function (slide) {
   slides.forEach((s, i) => {
     s.style.transform = `translateX(${100 * (i - slide)}%)`;
   });
 };
+
 goToSlide(0);
+
 // Next Slide
 let nextSlide = function () {
   if (curSlide === maxSlide - 1) {
@@ -175,20 +198,37 @@ let nextSlide = function () {
   } else {
     curSlide++;
   }
-
   goToSlide(curSlide);
+  activateDot(curSlide);
 };
 
 // Previous Slider
 let prevSlide = function () {
   if (curSlide === 0) {
-    curSlide === maxSlide - 1;
+    curSlide = maxSlide - 1;
   } else {
     curSlide--;
   }
   goToSlide(curSlide);
+  activateDot(curSlide);
 };
+
 btnRight.addEventListener("click", nextSlide);
 btnLeft.addEventListener("click", prevSlide);
 
+// Arrow keys for reviews
+document.addEventListener("keydown", function (e) {
+  // console.log(e);
+  e.key === "ArrowLeft" && prevSlide();
+  e.key === "ArrowRight" && nextSlide();
+});
+
+dotContainer.addEventListener("click", function (e) {
+  if (e.target.classList.contains("dots__dot")) {
+    // console.log("Dot");
+    let { slide } = e.target.dataset;
+    goToSlide(slide);
+    activateDot(slide);
+  }
+});
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
