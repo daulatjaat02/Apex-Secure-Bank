@@ -1,0 +1,78 @@
+/* styles.css */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px; /* Initially hidden */
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+}
+
+.logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+.sidebar-links {
+  padding: 20px;
+}
+
+.sidebar-links a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+/* styles.css */
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  z-index: 999;
+  animation: pulse 1s infinite ease-in-out; /* Add animation with ease-in-out timing function */
+}
+.close-btn {
+  color: red;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 999;
+  animation: pulse 1s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Initial size */
+  }
+  50% {
+    transform: scale(1.2); /* Increase size */
+  }
+  100% {
+    transform: scale(1); /* Back to original size */
+  }
+}
+
+.main-content {
+  margin-left: 250px; /* Adjust according to sidebar width */
+  padding: 20px;
+}

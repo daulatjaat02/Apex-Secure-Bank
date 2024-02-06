@@ -91,12 +91,10 @@ nav.addEventListener("mouseover", handleHover.bind(0.5));
 nav.addEventListener("mouseout", handleHover.bind(1));
 
 //  Sticky Navigation
-let navHeight = nav.getBoundingClientRect().height;
-// console.log(navHeight); // to get nav height dynamicaly
+let navHeight = nav.getBoundingClientRect().height; // to get nav height dynamicaly
 let header = document.querySelector(".header");
 let stickyNav = function (entries) {
   let [entry] = entries;
-  // console.log(entry);
   if (!entry.isIntersecting) nav.classList.add("sticky");
   else nav.classList.remove("sticky");
 };
@@ -111,7 +109,6 @@ headerObserver.observe(header);
 let allSections = document.querySelectorAll(".section");
 let revelSection = function (entries, observer) {
   let [entry] = entries;
-  // console.log(entry);
   if (!entry.isIntersecting) return;
 
   entry.target.classList.remove("section--hidden");
@@ -128,13 +125,12 @@ allSections.forEach(function (section) {
 
 // Lazy loading Images
 let imgTargets = document.querySelectorAll("img[data-src]");
-// console.log(imgTargets);
 let loadImg = function (entries, observe) {
   let [entry] = entries;
   console.log(entry);
   if (!entry.isIntersecting) return;
 
-  // Replace src with date-src
+  // Replace src with data-src
   entry.target.src = entry.target.dataset.src;
 
   entry.target.addEventListener("load", function () {
@@ -156,7 +152,6 @@ let sliders = function () {
   let btnLeft = document.querySelector(".slider__btn--left");
   let btnRight = document.querySelector(".slider__btn--right");
   let dotContainer = document.querySelector(".dots");
-
   let curSlide = 0;
   let maxSlide = slides.length;
 
@@ -228,7 +223,6 @@ let sliders = function () {
 
   dotContainer.addEventListener("click", function (e) {
     if (e.target.classList.contains("dots__dot")) {
-      // console.log("Dot");
       let { slide } = e.target.dataset;
       goToSlide(slide);
       activateDot(slide);
@@ -237,3 +231,29 @@ let sliders = function () {
 };
 sliders();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+let activetab = document.querySelector(".operations__content--active");
+document.querySelectorAll(".operations__tab").forEach((el) => {
+  el.addEventListener("mouseover", function (e) {
+    activetab.style.transition = "all 1s ease-in-out";
+    activetab.style.boxShadow = "20px 20px 44px -22px rgb(80 79 79)";
+  });
+  el.addEventListener("mouseout", function (e) {
+    activetab.style.transition = "";
+    activetab.style.boxShadow = " none";
+  });
+});
+
+//////////////////////////////////////////////////////////////////////
+document.addEventListener("DOMContentLoaded", function () {
+  const menuBtn = document.querySelector(".menu-btn");
+  const sidebar = document.querySelector(".sidebar");
+  const closeBtn = document.querySelector(".close-btn");
+
+  menuBtn.addEventListener("click", function () {
+    sidebar.style.right = "0";
+  });
+
+  closeBtn.addEventListener("click", function () {
+    sidebar.style.right = "-250px";
+  });
+});
