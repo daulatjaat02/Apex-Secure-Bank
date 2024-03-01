@@ -41,7 +41,6 @@ btnScrollTo.addEventListener("click", function (e) {
 });
 
 // / Impliment the Navigation bar
-
 document.querySelector(".nav__links").addEventListener("click", function (e) {
   e.preventDefault();
   // Matching Strategy
